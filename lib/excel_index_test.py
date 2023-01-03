@@ -30,6 +30,11 @@ def test_to_number():
     aa = AlfabetIndex("AB")
     assert aa.to_number() == 28
     
+def test_from_number():
+    a = AlfabetIndex.from_number(1)
+    assert a.value() == "A"
+    a = AlfabetIndex.from_number(27)
+    assert a.value() == "AA"
 # def test_next_alfabet():
 #     a = AlfabetIndex("A")
 #     assert a.next().value()  == "B"

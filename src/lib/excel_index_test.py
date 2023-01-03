@@ -3,7 +3,8 @@ from excel_index import AlfabetIndex, ExcelIndex, NumberIndex
 
 def test_excel_index():
     index = ExcelIndex("A1")
-    assert index.value() =="A1"
+    assert index.value() == "A1"
+
 
 def test_gen_range_cell_strs():
     start_index = ExcelIndex("A1")

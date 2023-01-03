@@ -12,8 +12,6 @@ from pydantic import BaseModel
 app = FastAPI()
 
 
-
-
 TEMPLATE_XLSX = "../lib/template.xlsx"
 
 

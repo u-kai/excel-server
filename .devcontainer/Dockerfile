@@ -1,8 +1,7 @@
 FROM python:latest
 
-WORKDIR /app
 
-COPY ./requirements.txt /app
-COPY ./test.xlsx /app
+COPY ./requirements.txt /workspaces
+COPY ./test.xlsx /workspaces
 
 RUN pip install -r requirements.txt

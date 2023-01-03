@@ -32,7 +32,6 @@ def test_excel_writer_write_block():
     writer.save(write_file)
     reader = ExcelReader()
     contents = reader.read_block_cell("write-test.xlsx", "Sheet1", "A1", "E3")
-    print(contents)
     assert contents == [
         [
             "A", "B", "C", None, None

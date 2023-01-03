@@ -2,19 +2,27 @@
 
 class ExcelIndex:
     def __init__(self,index:str):
-        self.index = index 
+        self.alfabet_index = AlfabetIndex(ExcelIndex.extract_alfabet(index)) 
+        self.number_index = NumberIndex(ExcelIndex.extract_number(index)) 
+
+    def from_custom_indexs(alfabet_index,number_index):
+        result = ExcelIndex("A1")
+        result.alfabet_index = alfabet_index 
+        result.number_index = number_index 
+        return result
+
 
     def value(self)->str:
-        return self.index
+        return self.alfabet_index.value() + self.number_index.str_value()
 
     def right(self):
-        return ExcelIndex("B1")
+        return ExcelIndex.from_custom_indexs(self.alfabet_index.next(),self.number_index)
+
     
     def extract_number(index): 
         result = ""
         for c in index:
             i = int(c.encode("utf-8").hex(),16)
-            print(i)
             if i > 47 and i < 58:
                 result += c
         return int(result)

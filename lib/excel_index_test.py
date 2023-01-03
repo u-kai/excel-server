@@ -9,8 +9,8 @@ def test_right_index():
     index = ExcelIndex("A1")
     right = index.right()
     assert right.value() == "B1"
-    # right_right = right.right()
-    # assert right.value() == "C1"
+    right_right = right.right()
+    assert right_right.value() == "C1"
     
 def test_extract_alfabet():
     assert ExcelIndex.extract_alfabet("AA1") == "AA"

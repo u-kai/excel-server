@@ -16,3 +16,5 @@ def test_read_cell():
     reader = ExcelReader()
     cell = reader.read_cell(TEST_FILE,TEST_SHEET,HELLO_CELL)
     assert cell == "hello"
+    cell = reader.read_cell(TEST_FILE,TEST_SHEET,WORLD_CELL)
+    assert cell == "world"

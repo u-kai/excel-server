@@ -14,6 +14,8 @@ class NumberIndex:
     def __init__(self,number):
         self.number = number
     
+    def next(self):
+        return NumberIndex(self.number+1)
     def str_value(self):
         return str(self.number)
 

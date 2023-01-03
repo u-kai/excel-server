@@ -17,6 +17,10 @@ def test_number_index():
     one = NumberIndex(1)
     assert one.str_value() == "1"
 
+def test_nextnumber_index():
+    one = NumberIndex(1)
+    assert one.next().str_value() == "2"
+
 def test_alfabet_index():
     a = AlfabetIndex("A")
     assert a.value() == "A"

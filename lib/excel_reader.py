@@ -8,10 +8,17 @@ class ExcelReader:
         self.sheet_cache = dict() 
      
     def read_block_cell(self,filepath,sheet_name,start_index,end_index) :
-        sheet = self.read_sheet(filepath,sheet_name)
         start_index = ExcelIndex(start_index)
-        
-        return [["hello","world"]]
+        end_index = ExcelIndex(end_index)
+        block_cell_indexs = start_index.gen_range_cell_strs(end_index)
+        result = []
+        for row_index in block_cell_indexs:
+            row = []
+            for cell_index in row_index:
+                row.append(self.read_cell(filepath,sheet_name,cell_index))
+            result.append(row)
+
+        return result
 
     def read_cell(self,filepath,sheet_name,cell_index):
         sheet = self.read_sheet(filepath,sheet_name)

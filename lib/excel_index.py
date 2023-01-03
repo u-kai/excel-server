@@ -10,6 +10,15 @@ class ExcelIndex:
     def right(self):
         return ExcelIndex("B1")
     
+    def extract_number(index): 
+        result = ""
+        for c in index:
+            i = int(c.encode("utf-8").hex(),16)
+            print(i)
+            if i > 47 and i < 58:
+                result += c
+        return int(result)
+    
     def extract_alfabet(index):
         result = ""
         for c in index:

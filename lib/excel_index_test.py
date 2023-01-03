@@ -17,6 +17,12 @@ def test_extract_alfabet():
     assert ExcelIndex.extract_alfabet("BB1") == "BB"
     assert ExcelIndex.extract_alfabet("ZZ1") == "ZZ"
 
+def test_extract_number():
+    assert ExcelIndex.extract_number("AA1") == 1
+    assert ExcelIndex.extract_number("AA2") == 2
+    assert ExcelIndex.extract_number("AA9") == 9
+
+
     
 def test_number_index():
     one = NumberIndex(1)

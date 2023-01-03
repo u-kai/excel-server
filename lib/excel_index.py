@@ -18,6 +18,9 @@ class ExcelIndex:
     def right(self):
         return ExcelIndex.from_custom_indexs(self.alfabet_index.next(),self.number_index)
 
+    def under(self):
+        return ExcelIndex.from_custom_indexs(self.alfabet_index,self.number_index.next())
+
     
     def extract_number(index): 
         result = ""

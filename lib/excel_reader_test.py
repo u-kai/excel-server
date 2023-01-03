@@ -25,3 +25,5 @@ def test_read_block_cell():
     end_index = WORLD_CELL 
     block_cell = reader.read_block_cell(TEST_FILE,TEST_SHEET,start_index,end_index)
     assert block_cell == [["hello","world"]]
+    # block_cell = reader.read_block_cell(TEST_FILE,TEST_SHEET,start_index,"C1")
+    # assert block_cell == [["hello","world",None]]

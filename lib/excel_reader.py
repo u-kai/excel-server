@@ -6,6 +6,9 @@ class ExcelReader:
         self.wb_cache = dict() 
         self.sheet_cache = dict() 
      
+    def read_block_cell(self,filepath,sheet_name,start_index,end_index) :
+        return [["hello","world"]]
+
     def read_cell(self,filepath,sheet_name,cell_index):
         sheet = self.read_sheet(filepath,sheet_name)
         return sheet[cell_index].value

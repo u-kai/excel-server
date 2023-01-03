@@ -9,6 +9,14 @@ class ExcelIndex:
 
     def right(self):
         return ExcelIndex("B1")
+    
+    def extract_alfabet(index):
+        result = ""
+        for c in index:
+            i = int(c.encode("utf-8").hex(),16)
+            if i > 64 and i<100:
+                result += c
+        return result
 
 class NumberIndex:
     def __init__(self,number):
@@ -16,6 +24,7 @@ class NumberIndex:
     
     def next(self):
         return NumberIndex(self.number+1)
+
     def str_value(self):
         return str(self.number)
 

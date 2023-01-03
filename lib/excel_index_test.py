@@ -12,6 +12,11 @@ def test_right_index():
     # right_right = right.right()
     # assert right.value() == "C1"
     
+def test_extract_alfabet():
+    assert ExcelIndex.extract_alfabet("AA1") == "AA"
+    assert ExcelIndex.extract_alfabet("BB1") == "BB"
+    assert ExcelIndex.extract_alfabet("ZZ1") == "ZZ"
+
     
 def test_number_index():
     one = NumberIndex(1)

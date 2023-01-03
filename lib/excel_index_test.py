@@ -5,6 +5,29 @@ def test_excel_index():
     index = ExcelIndex("A1")
     assert index.value() =="A1"
 
+def test_gen_range_cells():
+    start_index = ExcelIndex("A1")
+    end_index = ExcelIndex("C3")
+    range_cells = start_index.gen_range_cells(end_index)
+    result = []
+    for cells in range_cells:
+        row = []
+        for cell in cells:
+            row.append(cell.value())
+        result.append(row)
+    
+    assert result == [
+        [
+            "A1","B1","C1"
+        ],
+        [
+            "A2","B2","C2"
+        ],
+        [
+            "A3","B3","C3"
+        ],
+    ]
+
 def test_under_index():
     index = ExcelIndex("A1")
     under = index.under()

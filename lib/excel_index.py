@@ -11,7 +11,23 @@ class ExcelIndex:
         result.number_index = number_index 
         return result
 
-
+    def gen_range_cells(self,to_index):
+        result = []
+        tmp_number_index = self.number_index
+        tmp_alfabet_index = self.alfabet_index
+        while tmp_number_index.value() != to_index.number_index.next().value():
+            row = []
+            while tmp_alfabet_index.value() != to_index.alfabet_index.next().value():
+                index = ExcelIndex.from_custom_indexs(tmp_alfabet_index,tmp_number_index)
+                row.append(index)
+                tmp_alfabet_index = tmp_alfabet_index.next()
+            result.append(row)
+            tmp_number_index = tmp_number_index.next()
+            tmp_alfabet_index = self.alfabet_index
+        print(result)
+        return result
+            
+    
     def value(self)->str:
         return self.alfabet_index.value() + self.number_index.str_value()
 
@@ -44,6 +60,9 @@ class NumberIndex:
     
     def next(self):
         return NumberIndex(self.number+1)
+
+    def value(self):
+        return self.number
 
     def str_value(self):
         return str(self.number)

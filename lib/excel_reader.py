@@ -21,20 +21,23 @@ class ExcelReader:
     def read_sheet(self,filepath,sheet_name):
         for key in self.wb_cache.keys():
             if key == filepath:
-                entry = self.__make_cache_sheet_entry(filepath,sheet_name)
                 sheet = self.wb_cache[key][sheet_name]
-                self.sheet_cache.update({entry:sheet})
+                self.__cache_sheet(filepath,sheet_name,sheet)
                 return sheet
 
         wb = self.read_wb(filepath)
         self.__cache_wb(filepath,wb)
         sheet = self.wb_cache[filepath][sheet_name]
-        entry = self.__make_cache_sheet_entry(filepath,sheet_name)
-        self.sheet_cache.update({entry:sheet})
+        self.__cache_sheet(filepath,sheet_name,sheet)
         return sheet
     
     def __cache_wb(self,filepath,wb):
         self.wb_cache.update({filepath:wb})
+        return
+
+    def __cache_sheet(self,filepath,sheet_name,sheet):
+        entry = self.__make_cache_sheet_entry(filepath,sheet_name)
+        self.sheet_cache.update({entry:sheet})
         return
 
     def __make_cache_sheet_entry(self,filepath,sheet_name):

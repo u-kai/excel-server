@@ -1,4 +1,4 @@
-from excel_index import AlfabetIndex, ExcelIndex
+from excel_index import AlfabetIndex, ExcelIndex, NumberIndex
 
 
 def test_excel_index():
@@ -12,6 +12,10 @@ def test_right_index():
     # right_right = right.right()
     # assert right.value() == "C1"
     
+    
+def test_number_index():
+    one = NumberIndex(1)
+    assert one.str_value() == "1"
 
 def test_alfabet_index():
     a = AlfabetIndex("A")

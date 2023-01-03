@@ -10,6 +10,12 @@ class ExcelIndex:
     def right(self):
         return ExcelIndex("B1")
 
+class NumberIndex:
+    def __init__(self,number):
+        self.number = number
+    
+    def str_value(self):
+        return str(self.number)
 
 class AlfabetIndex:
     ALFABET_NUM = 26

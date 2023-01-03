@@ -1,3 +1,4 @@
+from excel_index import ExcelIndex
 from openpyxl import load_workbook
 
 
@@ -8,6 +9,8 @@ class ExcelReader:
      
     def read_block_cell(self,filepath,sheet_name,start_index,end_index) :
         sheet = self.read_sheet(filepath,sheet_name)
+        start_index = ExcelIndex(start_index)
+        
         return [["hello","world"]]
 
     def read_cell(self,filepath,sheet_name,cell_index):

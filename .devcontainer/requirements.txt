@@ -1,0 +1,5 @@
+openpyxl== 3.0.9
+fastapi
+black
+flake8
+uvicorn

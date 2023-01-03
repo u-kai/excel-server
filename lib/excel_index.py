@@ -49,7 +49,7 @@ class AlfabetIndex:
     def value(self):
         return self.alfabets
 
-    # def next(self):
-    #     this_to_number = self.to_number()
-    #     next_number = 
-    #     return AlfabetIndex("B")
+    def next(self):
+        this_number = self.to_number()
+        next_number = this_number + 1
+        return AlfabetIndex.from_number(next_number)

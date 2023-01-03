@@ -35,8 +35,9 @@ def test_from_number():
     assert a.value() == "A"
     a = AlfabetIndex.from_number(27)
     assert a.value() == "AA"
-# def test_next_alfabet():
-#     a = AlfabetIndex("A")
-#     assert a.next().value()  == "B"
-#     a = AlfabetIndex("AA")
-#     assert a.next().value()  == "AB"
+
+def test_next_alfabet():
+    a = AlfabetIndex("A")
+    assert a.next().value()  == "B"
+    a = AlfabetIndex("AA")
+    assert a.next().value()  == "AB"

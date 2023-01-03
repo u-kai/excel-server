@@ -65,3 +65,16 @@ async def read_cell(contents:ReadContents):
         return {"index":contents.cell,"value":""}
 
     return {"index":contents.cell,"value":cell}
+
+
+class ReadCellsContents(BaseModel):
+    filename:str
+    sheet: Optional[str] = "Sheet1"
+    start_cell:str
+    end_cell:str
+
+@app.post("/read-cells")
+async def read_cells(contents:ReadCellsContents):
+    cells = reader.read_block_cell(contents.filename,contents.sheet,contents.start_cell,contents.end_cell)
+
+    return {"start":contents.start_cell,"end":contents.end_cell,"cells":cells}

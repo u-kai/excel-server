@@ -31,6 +31,15 @@ def test_calculate_excel_width_case_multiline():
     char_width = 1.0
     assert calculate_excel_width(column_datas,char_width) == 6.0
 
+    column_datas = [
+        "abcd"+"\n"+"efghijk",#tobe len 7
+        "abcde",
+        "abcdef",
+        "a",
+    ]
+    char_width = 1.0
+    assert calculate_excel_width(column_datas,char_width) == 7.0
+
 def test_calculate_excel_width_use_default_length2_08():
 
     column_datas = [

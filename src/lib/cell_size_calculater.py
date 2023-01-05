@@ -1,5 +1,7 @@
 class CellSizeCalculator:
-    def __init__(self,char_width,char_height) -> None:
+    DEFAULT_CHAR_HEIGHT = 2.08
+    DEFAULT_ZENKAKU_LEN = 2.08
+    def __init__(self,char_width=DEFAULT_ZENKAKU_LEN,char_height=DEFAULT_CHAR_HEIGHT) -> None:
        self.char_width = char_width 
        self.char_height = char_height 
 
@@ -12,7 +14,6 @@ class CellSizeCalculator:
     def calculate_widths(self,table_data):
         result = []
         reversed = reverse(table_data)
-        print(reversed)
         for column in reversed:
             result.append(calculate_excel_width(column,self.char_width))
         return result
@@ -33,8 +34,7 @@ def reverse(table_data):
         result.append(tmp)
     return result
 
-DEFAULT_CHAR_HEIGHT = 2.08
-def calculate_excel_height(row_datas,char_height=DEFAULT_CHAR_HEIGHT):
+def calculate_excel_height(row_datas,char_height):
     max_len = 0
     for data in row_datas:
         if max_len <= len(data.split("\n")):
@@ -43,8 +43,7 @@ def calculate_excel_height(row_datas,char_height=DEFAULT_CHAR_HEIGHT):
     return max_len * char_height
 
 
-DEFAULT_ZENKAKU_LEN = 2.08
-def calculate_excel_width(column_datas,char_width=DEFAULT_ZENKAKU_LEN):
+def calculate_excel_width(column_datas,char_width):
     max_len = 0
     for data in column_datas:
         for line in data.split("\n"):

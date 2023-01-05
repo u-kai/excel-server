@@ -1,9 +1,15 @@
 class CellSizeCalculator:
-    DEFAULT_CHAR_HEIGHT = 2.08
+    DEFAULT_CHAR_HEIGHT = 19
     DEFAULT_ZENKAKU_LEN = 2.08
     def __init__(self,char_width=DEFAULT_ZENKAKU_LEN,char_height=DEFAULT_CHAR_HEIGHT) -> None:
-       self.char_width = char_width 
-       self.char_height = char_height 
+       if char_width is None :
+           self.char_width = CellSizeCalculator.DEFAULT_ZENKAKU_LEN
+       else :
+            self.char_width = char_width 
+       if char_height is None :
+           self.char_height = CellSizeCalculator.DEFAULT_CHAR_HEIGHT
+       else :
+            self.char_height = char_height 
 
     def calculate_heights(self,table_data):
         result = []

@@ -9,7 +9,7 @@ class ExcelWriter:
         self.wb = load_workbook(template_sheet_path)
         pass
 
-    def ajust_cell_size(self,sheet_name,start_index,contents,char_width,char_height):
+    def ajust_cell_size(self,sheet_name,start_index,contents,char_width=None,char_height=None):
         calculator = CellSizeCalculator(char_width=char_width,char_height=char_height)
         self.ajust_height(sheet_name,start_index,contents,calculator)
         self.ajust_width(sheet_name,start_index,contents,calculator)

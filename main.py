@@ -18,6 +18,7 @@ class WriteContents(BaseModel):
     sheet: Optional[str] = "Sheet1"
     contents: List[List[str]]
     start_cell: Optional[str] = "A1"
+    ajust_size: Optional[bool] = True
 
 
 @app.post("/write-contents")
@@ -26,6 +27,8 @@ async def write_contents(contents: WriteContents):
     writer.write_block_cell(
         contents.sheet, contents.start_cell, contents.contents
     )
+    if contents.ajust_size:
+        writer.ajust_cell_size(contents.sheet,contents.start_cell,contents.contents)
     writer.save(contents.filename)
     return {"message": f"{contents.filename} is writed success"}
 

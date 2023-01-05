@@ -2,3 +2,6 @@ __pycache__
 *.xlsx
 !template.xlsx
 .pytest_cache
+build
+dist
+*.spec

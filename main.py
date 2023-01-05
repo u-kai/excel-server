@@ -4,8 +4,10 @@ from typing import List, Optional
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from src.lib.excel_reader import ExcelReader
-from src.lib.excel_writer import ExcelWriter
+sys.path.append("../excel-server/src/lib")
+
+from excel_reader import ExcelReader
+from excel_writer import ExcelWriter
 
 app = FastAPI()
 

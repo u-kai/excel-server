@@ -10,7 +10,7 @@ from src.lib.excel_writer import ExcelWriter
 app = FastAPI()
 
 
-TEMPLATE_XLSX = "../lib/template.xlsx"
+TEMPLATE_XLSX = "src/lib/template.xlsx"
 
 
 class WriteContents(BaseModel):

@@ -1,8 +1,18 @@
 # Excel Server
 
 ## How to Run
-uvicorn main:app --reload
 
+execute below command ad project root dir
+
+```
+uvicorn main:app --reload
+```
+
+or
+
+```
+./app-start.sh
+```
 ## write-contents api example
 
 ```shell

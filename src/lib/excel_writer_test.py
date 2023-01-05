@@ -13,6 +13,26 @@ def test_excel_writer():
     assert reader.read_cell("write-test.xlsx", "Sheet1", "A1") == "hello"
     remove(write_file)
 
+def test_excel_writer_ajust_cell_size():
+    write_file = "write-test.xlsx"
+    writer = ExcelWriter("./src/lib/template.xlsx")
+    write_content = [
+        [
+            "A", "B", "C"
+        ],
+        [
+            "DE", "FGH", "JKLM", "OPQRS"+"\n"+"U"
+        ],
+    ]
+    sheet_name = "Sheet1"
+    start_index = "A1"
+    writer.ajust_cell_size(sheet_name,start_index,write_content,char_width=1.0,char_height=1.0)
+
+    assert writer.wb[sheet_name].column_dimensions["A"].width == 2.0
+    assert writer.wb[sheet_name].column_dimensions["B"].width == 3.0
+    assert writer.wb[sheet_name].column_dimensions["C"].width == 4.0
+    assert writer.wb[sheet_name].column_dimensions["D"].width == 5.0
+
 
 def test_excel_writer_write_block():
     writer = ExcelWriter("./src/lib/template.xlsx")

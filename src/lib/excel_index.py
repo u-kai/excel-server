@@ -48,7 +48,12 @@ class ExcelIndex:
 
     def under(self):
         return ExcelIndex.from_custom_indexs(self.alfabet_index,self.number_index.next())
+    
+    def number(self):
+        return ExcelIndex.extract_number(self.value())
 
+    def alfabet(self):
+        return ExcelIndex.extract_alfabet(self.value())
     
     def extract_number(index): 
         result = ""

@@ -11,13 +11,18 @@ class ExcelWriter:
 
     def ajust_cell_size(self,sheet_name,start_index,contents,char_width,char_height):
         calclator = CellSizeCalculator(char_width=char_width,char_height=char_height)
-        # heights = calclator.calculate_heights()
         start_index = ExcelIndex(start_index)
-        index = start_index
         widths = calclator.calculate_widths(contents)
+        index = start_index
         for width in widths:
             self.wb[sheet_name].column_dimensions[index.alfabet()].width = width
             index = index.right()
+
+        heights = calclator.calculate_heights(contents)
+        index = start_index
+        for height in heights:
+            self.wb[sheet_name].row_dimensions[index.number()].height = height
+            index = index.under()
 
     def write_block_cell(self, sheet_name, start_index, contents):
         start_index = ExcelIndex(start_index)

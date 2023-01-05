@@ -14,7 +14,6 @@ def test_excel_writer():
     remove(write_file)
 
 def test_excel_writer_ajust_cell_size():
-    write_file = "write-test.xlsx"
     writer = ExcelWriter("./src/lib/template.xlsx")
     write_content = [
         [
@@ -32,6 +31,8 @@ def test_excel_writer_ajust_cell_size():
     assert writer.wb[sheet_name].column_dimensions["B"].width == 3.0
     assert writer.wb[sheet_name].column_dimensions["C"].width == 4.0
     assert writer.wb[sheet_name].column_dimensions["D"].width == 5.0
+    assert writer.wb[sheet_name].row_dimensions[1].height == 1.0
+    assert writer.wb[sheet_name].row_dimensions[2].height == 2.0
 
 
 def test_excel_writer_write_block():

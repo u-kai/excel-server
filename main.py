@@ -1,13 +1,11 @@
 import sys
 from typing import List, Optional
 
-sys.path.append("../lib")
-
-
-from excel_reader import ExcelReader
-from excel_writer import ExcelWriter
 from fastapi import FastAPI
 from pydantic import BaseModel
+
+from src.lib.excel_reader import ExcelReader
+from src.lib.excel_writer import ExcelWriter
 
 app = FastAPI()
 

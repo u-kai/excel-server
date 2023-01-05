@@ -10,15 +10,21 @@ class ExcelWriter:
         pass
 
     def ajust_cell_size(self,sheet_name,start_index,contents,char_width,char_height):
-        calclator = CellSizeCalculator(char_width=char_width,char_height=char_height)
+        calculator = CellSizeCalculator(char_width=char_width,char_height=char_height)
+        self.ajust_height(sheet_name,start_index,contents,calculator)
+        self.ajust_width(sheet_name,start_index,contents,calculator)
+    
+    def ajust_width(self,sheet_name,start_index,contents,calculator):
         start_index = ExcelIndex(start_index)
-        widths = calclator.calculate_widths(contents)
+        widths = calculator.calculate_widths(contents)
         index = start_index
         for width in widths:
             self.wb[sheet_name].column_dimensions[index.alfabet()].width = width
             index = index.right()
 
-        heights = calclator.calculate_heights(contents)
+    def ajust_height(self,sheet_name,start_index,contents,calculator):
+        start_index = ExcelIndex(start_index)
+        heights = calculator.calculate_heights(contents)
         index = start_index
         for height in heights:
             self.wb[sheet_name].row_dimensions[index.number()].height = height

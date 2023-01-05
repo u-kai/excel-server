@@ -1,12 +1,12 @@
 from os import remove
 
-from excel_reader import ExcelReader
-from excel_writer import ExcelWriter
+from src.lib.excel_reader import ExcelReader
+from src.lib.excel_writer import ExcelWriter
 
 
 def test_excel_writer():
     write_file = "write-test.xlsx"
-    writer = ExcelWriter("./lib/template.xlsx")
+    writer = ExcelWriter("./src/lib/template.xlsx")
     writer.write_cell("Sheet1", "A1", "hello")
     writer.save(write_file)
     reader = ExcelReader()
@@ -15,7 +15,7 @@ def test_excel_writer():
 
 
 def test_excel_writer_write_block():
-    writer = ExcelWriter("./lib/template.xlsx")
+    writer = ExcelWriter("./src/lib/template.xlsx")
     write_content = [
         [
             "A", "B", "C"

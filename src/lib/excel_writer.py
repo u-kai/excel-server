@@ -1,5 +1,6 @@
-from excel_index import ExcelIndex
 from openpyxl import load_workbook
+
+from src.lib.excel_index import ExcelIndex
 
 
 class ExcelWriter:

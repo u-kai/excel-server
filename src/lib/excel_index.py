@@ -1,5 +1,3 @@
-
-
 class ExcelIndex:
     def __init__(self,index:str):
         self.alfabet_index = AlfabetIndex(ExcelIndex.extract_alfabet(index)) 

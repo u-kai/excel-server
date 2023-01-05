@@ -1,4 +1,4 @@
-from excel_index import AlfabetIndex, ExcelIndex, NumberIndex
+from src.lib.excel_index import AlfabetIndex, ExcelIndex, NumberIndex
 
 
 def test_excel_index():

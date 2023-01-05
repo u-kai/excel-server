@@ -1,4 +1,4 @@
-from excel_reader import ExcelReader
+from src.lib.excel_reader import ExcelReader
 
 TEST_FILE =  "test.xlsx"
 TEST_SHEET = "Sheet1"

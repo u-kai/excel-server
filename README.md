@@ -51,3 +51,11 @@ curl -X POST -H "Content-Type:application/json" -d '{
     ]
 }
 ```
+
+## To Exe
+
+if you want to main.py to main.exe; execute below command
+
+```shell
+./scripts/to-exe.sh
+```

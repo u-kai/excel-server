@@ -1,13 +1,11 @@
-import sys
 from typing import List, Optional
 
+import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-sys.path.append("../excel-server/src/lib")
-
-from excel_reader import ExcelReader
-from excel_writer import ExcelWriter
+from src.lib.excel_reader import ExcelReader
+from src.lib.excel_writer import ExcelWriter
 
 app = FastAPI()
 
@@ -79,3 +77,6 @@ async def read_cells(contents:ReadCellsContents):
     cells = reader.read_block_cell(contents.filename,contents.sheet,contents.start_cell,contents.end_cell)
 
     return {"start":contents.start_cell,"end":contents.end_cell,"cells":cells}
+
+if __name__ == "__main__":
+    uvicorn.run(app)

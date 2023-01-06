@@ -2,17 +2,12 @@
 
 ## How to Run
 
-execute below command ad project root dir
+execute below command project root dir
 
-```
-uvicorn main:app --reload
+```shell
+python main.py
 ```
 
-or
-
-```
-./app-start.sh
-```
 ## write-contents api example
 
 ```shell

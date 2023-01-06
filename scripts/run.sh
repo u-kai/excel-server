@@ -1,7 +1,8 @@
 #!/bin/bash
 
+PORT = 5051
 # start server
-dist/main
+dist/main PORT
 
 # run client
-./client/target/release/client
+./client/target/release/client PORT

@@ -79,4 +79,11 @@ async def read_cells(contents:ReadCellsContents):
     return {"start":contents.start_cell,"end":contents.end_cell,"cells":cells}
 
 if __name__ == "__main__":
-    uvicorn.run(app,port=5051)
+    import sys
+    if len(sys.argv) != 2:
+        port = 5051
+    else:
+        port = int(sys.argv[1])
+
+
+    uvicorn.run(app,port=port)

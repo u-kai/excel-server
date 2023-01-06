@@ -29,7 +29,7 @@ async fn main() {
         .unwrap_or("5051".to_string());
     let client = reqwest::Client::new();
     let response = client
-        .post(format!("http://localhost:{}/write_contents", port))
+        .post(format!("http://localhost:{}/write-contents", port))
         .body(serde_json::to_string(&write_content).unwrap())
         .send()
         .await
